@@ -2,6 +2,7 @@
 - folder venv pu into /home/USER/Documents/web/
 - folder tisk-stitku put into /home/USER/Documents/
 - extract zip folder www.zip into /var/ - apache2 required
+- start app run webapp.py
 - FLASK IP 192.168.0.120:5000
 - tiskarna.ppd is for CUPS settitn ZEBRA printer
 
