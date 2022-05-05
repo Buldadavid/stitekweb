@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="8859">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Title</title>
+</head>
+<style>
+	#greet5 {
+    background-color: PaleVioletRed;
+    border:  none;
+    height: 50px;
+    width:  100%;
+    color: white;
+    border-radius: 5px;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+body {
+  background-color: lightblue;
+}
+
+h1 {
+font-family: arial, sans-serif;
+font-size: 48px;
+font-weight: bold;
+margin-top: 0px;
+margin-bottom: 1px;
+}
+li {
+font-family: arial, sans-serif;
+font-size: 20px;
+margin-top: 0px;
+margin-bottom: 1px;
+}
+input, select {
+  width: 99%;
+  padding: 12px 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: arial, sans-serif;
+  font-size: 20px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th {
+  border: 1px solid #000000;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+tr:nth-child(odd) {
+  background-color: #fefefe;
+}
+
+#nic th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #000000;
+  color: white;
+}
+#orange
+  {
+    background-color: {{barva}};
+  }
+#zetko
+{
+background-color: {{barvaZ}};
+}
+#on
+{
+background-color: lightblue;
+}
+</style>
+<body>
+<form method="post" action="save.php">
+	<table id="nic">
+  <tr>
+	<th colspan="2">©títek-Manualne</th>
+
+  </tr>
+  <tr>
+    <td>MLFB</td>
+    <td><input class="input_name right_side_color_lin" name="text" required></td>
+
+  </tr>
+  <tr>
+    <td>Ser. è.</td>
+    <td><input name="text2"></td>
+
+  </tr>
+  <tr>
+    <td>Brzda</td>
+    <td><input name="text3"></td>
+
+  </tr>
+    <tr>
+    <td>Odmìøování</td>
+    <td><input name="text4"></td>
+
+  </tr>
+      <tr>
+    <td>Váha</td>
+    <td><input name="text5"></td>
+
+  </tr>
+    <tr>
+    <td>Teplotní èidlo</td>
+    <td>
+	<select name="tep" id="cars">
+    <option value="kty">KTY</option>
+    <option value="pt1000">PT1000</option>
+    </select><br><br>
+    </td>
+
+  </tr>
+</form>
+</table><br>
+<input type="submit" name="submit" value="Submit" class="style_btn lin_color_left start_btn" id="greet5"/>
+</form>	
+</body>
+</html>
+
