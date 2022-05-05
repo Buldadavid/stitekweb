@@ -3,7 +3,7 @@
 - folder tisk-stitku put into /home/USER/Documents/
 - extract zip folder www.zip into /var/ - apache2 required
 - FLASK IP 192.168.0.120:5000
-- 
+
 # CHANGE LOG
 <03.05.2022 - vsechno :D
 
