@@ -72,17 +72,14 @@ Nav Styles
   position: relative;
   overflow: hidden;
   overflow-y: auto;
-  wight = 100%;
   height: 100%;
-
 }
 nav {
   text-align: left;
-  wight = 100%;
+  margin-left: 25%;
 }
 nav a {
   position: relative;
-  
   text-decoration: none;
   color: #6ecddd;
   font-size: 2em;
@@ -94,9 +91,10 @@ nav a {
 nav a:before {
   content: '';
   height: 0;
-  
   position: absolute;
+  width: 0.25em;
   background-color: white;
+  left: -0.5em;
   transition: all 0.2s ease-in-out;
 }
 
@@ -134,14 +132,6 @@ background-color: {{barvaZ}};
 background-color: {{barvaO}};
 }
 #greet5 {
-    background-color: rgb(100, 100, 100);
-    border:  none;
-    height: 50px;
-    width:  100%;
-    color: white;
-    border-radius: 5px;
-}
-#vse {
     background-color: rgb(100, 100, 100);
     border:  none;
     height: 50px;
@@ -216,32 +206,23 @@ tr:nth-child(odd) {
 </label>
 
 <div class="nav">
-<br><br><br><br><br><br>
   <div class="nav-wrapper">
     <nav>
-
-    
-    <td><form action="uka" method="post">
-	<input type="submit" value="Uka" id="vse">
-	</form></td><br>
-      <td><form action="onkokos" method="post">
- 	 <input type="submit" value="Manuálně" id="vse">
-	</form></td><br>
-      <td><form action="diag" method="post">
-	<input type="submit" value="DIAG. List" id="vse">
-	</form></td><br>
-      <td><form action="smazat" method="post">
- 	 <input type="submit" value="Smazat obrázky" id="vse">
-	</form></td><br>
-      <td><form action="foto" method="post">
- 	 <input type="submit" value="Štítek z fotky" id="vse">
-	</form></td><br> 
-    
-    
-    
-    
-    
-    
+      <a href="#"><form action="uka" method="post">
+	<input type="submit" value="Uka" id="greet5">
+	</form></a><br>
+      <a href="#"><form action="onkokos" method="post">
+ 	 <input type="submit" value="Manuálně" id="greet5">
+	</form></a><br>
+      <a href="#"><form action="diag" method="post">
+	<input type="submit" value="DIAG. List" id="greet5">
+	</form></a><br>
+      <a href="#"><form action="smazat" method="post">
+ 	 <input type="submit" value="Smazat obrázky" id="greet5">
+	</form></a><br>
+      <a href="#"><form action="foto" method="post">
+ 	 <input type="submit" value="Štítek z fotky" id="greet5">
+	</form></a><br>
     </nav>
   </div>
 </div>
@@ -318,11 +299,16 @@ tr:nth-child(odd) {
     <td id="orange">{{datum}}</td>
 
   </tr>
-</table>
-<br>
-	<form action="new" method="post">
-	<input type="submit" value="Vytvoř nové odměřování" id="greet5">
-	</form>
+    <tr>
+	<td colspan="2">
+		    <form action="new" method="post">
 
+	<input type="submit" value="Vytvoř nové odměřování" id="greet5">
+    </form>
+	</td>
+
+  </tr>
+
+</table>
 </body>
 </html>

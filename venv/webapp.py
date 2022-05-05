@@ -9,6 +9,10 @@ import csv
 import datetime
 from os.path import exists
 
+from PIL import Image
+import pytesseract
+import re
+
 app = Flask(__name__)
 app.secret_key = "manbearpig_MUDMAN888"
 
@@ -35,6 +39,9 @@ def my_form_post():
     imput = Imput[2:50]
     cd = len(imput)
     #print(cd)
+    
+    if " " in Imput :
+        return render_template('error/error_qr.html',Imput=Imput)        
 
     if cd >= 37 :
         mlfb = imput[0:20]
@@ -91,7 +98,7 @@ def my_form_post():
     for row in ws.rows:
         if row[0].value == index:
             odmer = row[1].value
-            barvaO = "#fefefe"
+            barvaO = "#dddddd"
 
     try:
       odmer
@@ -173,6 +180,10 @@ def my_form_post():
     ws2['A7'] = vibroOK
     ws2['A8'] = vibroNOK
     ws2['A9'] = index
+    ws2['A10'] = barvaO
+    ws2['A11'] = barvaZ
+    ws2['A12'] = barva
+    ws2['A13'] = Imput
     wb.save('/home/nic/Dokumenty/web/venv/data.xlsx')
 
     return render_template('index2.html',barvaO = barvaO, barvaZ=barvaZ, z=z, mlfb=mlfb, datum=dat_o, odmer = odmer, cislo = cislo, Imput= Imput, barva = barva)
@@ -189,7 +200,12 @@ def stitek():
     zp = ws2['A6'].value
     vibroOK = ws2['A7'].value
     vibroNOK = ws2['A8'].value
-    return render_template('stitek.html' ,vibroOK = vibroOK, vibroNOK = vibroNOK , z=zp, mlfb=mlfbp, datum=dat_op, odmer = odmerp, cislo = cislop)
+    barvaOp = ws2['A10'].value
+    barvaZp = ws2['A11'].value
+    barvap = ws2['A12'].value
+    Imputp = ws2['A13'].value
+
+    return render_template('stitek.html' ,vibroOK = vibroOK, vibroNOK = vibroNOK , z=zp, mlfb=mlfbp, datum=dat_op, odmer = odmerp, cislo = cislop, barvaO = barvaOp, barvaZ=barvaZp, barva = barvap, Imput = Imputp)
 
 @app.route("/home", methods=['POST'])
 def homeer():
@@ -200,7 +216,7 @@ def homeer():
 def tisker():
     print("tisk")
     os.system("lp -o media=1*1.9 /home/nic/Dokumenty/web/venv/static/pillow_paste.jpg")
-    return redirect("/")
+    return redirect("/help")
 
 @app.route("/onkokos", methods=['POST'])
 def oner():
@@ -263,5 +279,13 @@ def off():
     tep = " ".join(tepp)
     return render_template("stitek.html", mlfb=mlfb, odmer = odmer, cislo = cislo,brzda=brzda, vaha=vaha,tep=tep)
 
+@app.route("/foto", methods=['POST', 'GET'])
+def foto(): 
+    print("foto")
+    os.system("mv /home/nic/Dokumenty/web/venv/static/foto/*.jpg /home/nic/Dokumenty/web/venv/static/foto/1")
+    data= pytesseract.image_to_string(Image.open("/home/nic/Dokumenty/web/venv/static/foto/1"))
+    mlfb = data[41:62]
+    cislo = data[70:85]
+    return render_template("foto.html", mlfb=mlfb, cislo=cislo)
 
 app.run(host="192.168.0.120")
