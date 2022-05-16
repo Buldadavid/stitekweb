@@ -143,7 +143,9 @@ def my_form_post():
         barva = "#74ec3a"
 
     
-    input_data = mlfb + " " + cislo
+    qr_text = "1P"+mlfb+"+SYF"+cislo.replace("-","")
+    
+    input_data = qr_text
     qr = qrcode.QRCode(
         version=1,
         box_size=2,
