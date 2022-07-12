@@ -8,6 +8,7 @@ $text3 = $_POST["text3"];
 $text4 = $_POST["text4"];
 $text5 = $_POST["text5"];
 $text6 = $_POST["tep"];
+$textz = $_POST["textz"];
 
 $list = array(
   array( $text ),
@@ -16,6 +17,7 @@ $list = array(
   array( $text4 ), 
   array( $text5 ),
   array( $text6 ),
+  array( $textz ),
 );
 
 $fp = fopen("/home/nic/Dokumenty/web/venv/data/file.csv" , "w"); 
