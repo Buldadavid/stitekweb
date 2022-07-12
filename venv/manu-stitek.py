@@ -14,6 +14,11 @@ vaha = " ".join(vahap)
 tep = " ".join(tepp)
 z = " ".join(zp)
 
+if not z == "/":
+    ZZ =f'  Z:  {z}'
+else :
+    ZZ =''
+
 input_data = mlfb + " " + cislo
 qr = qrcode.QRCode(
     version=1,
@@ -27,7 +32,7 @@ title_font = ImageFont.truetype("/home/nic/Dokumenty/tisk-stitku/Roboto-Medium.t
 
 image_editable = ImageDraw.Draw(my_image)
 image_editable.text((25,35), "3 ~ Motor " + mlfb, (0, 0, 0), font=title_font)
-image_editable.text((25,73), "No. YF " + cislo + "  Z:" + z, (0, 0, 0), font=title_font)
+image_editable.text((25,73), "No. YF " + cislo + ZZ (0, 0, 0), font=title_font)
 image_editable.text((25,105), "Enc. " + odmer, (0, 0, 0), font=title_font)
 image_editable.text((25,135), "Brake "+ brzda, (0, 0, 0), font=title_font)
 image_editable.text((25,175), "m "+ vaha +"Kg", (0, 0, 0), font=title_font)
