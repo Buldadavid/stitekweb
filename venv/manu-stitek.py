@@ -5,13 +5,14 @@ import csv
 file = open('/home/nic/Dokumenty/web/venv/data/file.csv')
 csvreader = csv.reader(file)
 
-mlfbp, cislop, brzdap, odmerp, vahap, tepp = csvreader
+mlfbp, cislop, brzdap, odmerp, vahap, tepp, zp = csvreader
 mlfb = " ".join(mlfbp)
 cislo = " ".join(cislop)
 brzda = " ".join(brzdap)
 odmer = " ".join(odmerp)
 vaha = " ".join(vahap)
 tep = " ".join(tepp)
+z = " ".join(zp)
 
 input_data = mlfb + " " + cislo
 qr = qrcode.QRCode(
@@ -26,7 +27,7 @@ title_font = ImageFont.truetype("/home/nic/Dokumenty/tisk-stitku/Roboto-Medium.t
 
 image_editable = ImageDraw.Draw(my_image)
 image_editable.text((25,35), "3 ~ Motor " + mlfb, (0, 0, 0), font=title_font)
-image_editable.text((25,73), "No. YF " + cislo, (0, 0, 0), font=title_font)
+image_editable.text((25,73), "No. YF " + cislo + "  Z:" + z, (0, 0, 0), font=title_font)
 image_editable.text((25,105), "Enc. " + odmer, (0, 0, 0), font=title_font)
 image_editable.text((25,135), "Brake "+ brzda, (0, 0, 0), font=title_font)
 image_editable.text((25,175), "m "+ vaha +"Kg", (0, 0, 0), font=title_font)
