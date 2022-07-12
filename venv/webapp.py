@@ -272,14 +272,15 @@ def off():
     file = open('/home/nic/Dokumenty/web/venv/data/file.csv')
     csvreader = csv.reader(file)
 
-    mlfbp, cislop, brzdap, odmerp, vahap, tepp = csvreader
+    mlfbp, cislop, brzdap, odmerp, vahap, tepp, zp = csvreader
     mlfb = " ".join(mlfbp)
     cislo = " ".join(cislop)
     brzda = " ".join(brzdap)
     odmer = " ".join(odmerp)
     vaha = " ".join(vahap)
     tep = " ".join(tepp)
-    return render_template("stitek.html", mlfb=mlfb, odmer = odmer, cislo = cislo,brzda=brzda, vaha=vaha,tep=tep)
+    z = " ".join(zp)
+    return render_template("stitek.html", z=z,mlfb=mlfb, odmer = odmer, cislo = cislo,brzda=brzda, vaha=vaha,tep=tep)
 
 @app.route("/foto", methods=['POST', 'GET'])
 def foto(): 
