@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+#greet {
+    background-color: rgb(100, 100, 100);
+    border:  none;
+    width:  95%;
+    height: 50px;
+    color: white;
+    border-radius: 5px;
+}
+input {
+  font-family: Shanti;
+  font-size: 10px;
+}
+
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
+<style>
+	#greet5 {
+    background-color: rgb(100, 100, 100);
+    border:  none;
+    height: 50px;
+    width:  100%;
+    color: white;
+    border-radius: 5px;
+}
+body {
+  background-color: lightblue;
+}
+
+h1 {
+font-family: arial, sans-serif;
+font-size: 48px;
+font-weight: bold;
+margin-top: 0px;
+margin-bottom: 1px;
+}
+li {
+font-family: arial, sans-serif;
+font-size: 20px;
+margin-top: 0px;
+margin-bottom: 1px;
+}
+input, select {
+  width: 99%;
+  padding: 12px 20px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-family: arial, sans-serif;
+  font-size: 20px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+tr:nth-child(odd) {
+  background-color: #fefefe;
+}
+
+#nic th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #000000;
+  color: white;
+}
+
+#nic td, th {
+  border: 1px solid #000000;
+  text-align: left;
+  padding: 8px;
+}
+
+#nic2 tr {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: lightblue;
+  color: white;
+}
+#orange
+  {
+    background-color: {{barva}};
+  }
+#zetko
+{
+background-color: {{barvaZ}};
+}
+#odmerko
+{
+background-color: {{barvaO}};
+}
+</style>
+</head>
+
+<body>
+  
+<h1>Štítek</h1><br>
+
+<img src="/static/pillow_paste.jpg"style="width:300px;height:150px";>
+
+<table id="nic2" style="width:100%">
+  <tr>
+    <td><form action="tisk" method="post">
+        <input type="submit" value="TISK" id="greet">
+</form>
+    </td>
+    <td><form action="home" method="post">
+        <input type="submit" value="HOME" id="greet">
+</form>
+    </td>
+
+  </tr>
+
+</table><br><br>
+<table id="nic">
+  <tr>
+	<th colspan="2">Hodnota z QR códu</th>
+
+  </tr>
+  <tr>
+    <td>QR</td>
+    <td>{{Imput}}</td>
+
+  </tr>
+  <tr>
+    <td>MLFB</td>
+    <td>{{mlfb}}</td>
+
+  </tr>
+    <tr>
+    <td>Z</td>
+    <td id="zetko">{{z}}</td>
+
+  </tr>
+  <tr>
+    <td>Ser. č.</td>
+    <td>{{cislo}}</td>
+
+  </tr>
+    <tr>
+    <td>Odměřování</td>
+    <td id="odmerko">{{odmer}}</td>
+
+  </tr>
+  <tr>
+    <td>Datum výroby</td>
+    <td id="orange">{{datum}}</td>
+
+  </tr>
+    <tr>
+  <tr>
+	<th colspan="2">Vibrodiagnostika</th>
+
+  </tr>
+  <tr>
+    <td>Vibro OK</td>
+    <td>{{vibroOK}}</td>
+
+  </tr>
+  <tr>
+    <td>Vibro NOK</td>
+    <td>{{vibroNOK}}</td>
+
+  </tr>
+</table> 
+
+
+</body>
+</html>
