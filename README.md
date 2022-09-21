@@ -1,5 +1,5 @@
 # FLASK WEB stitekweb
-- folder WebAPP put into /home/USER/
+- folder WebAPP put into ~/home/{USER}/
 - start app run WebAPP.py
 - FLASK IP 192.168.0.120:5000
 - tiskarna.ppd is for CUPS settitn ZEBRA printer
