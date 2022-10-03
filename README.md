@@ -21,3 +21,6 @@
 		- zápis paměti do jediného csv
 		- zrušení PHP, vše funguje ve flasku
 		- odstranení zbytečných funkcí (diag,obr,...)
+
+03.10.2022 	- štítek manuálně - upraveno, aby šlo zadávat cokoliv (třeba - ) a nejenom správný formát (M100 0000 00 000)   
+		- tvorba štítku - zapisuje se i Z, pokud je / tak nic, ale pukud je cokoliv jiného, tak to napíše (Z:blablabla)
