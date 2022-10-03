@@ -5,7 +5,8 @@
 - tiskarna.ppd is for CUPS settitn ZEBRA printer
 
 # CHANGE LOG
-<03.05.2022 - vsechno :D
+<03.05.2022 
+- vsechno :D
 
 03.05.2022 
 - úprava manuálního zadávání štítku - min/max délka vstupu, povolení zadávat jen čisla ...
