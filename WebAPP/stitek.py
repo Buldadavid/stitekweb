@@ -66,8 +66,7 @@ def stitek():
 
     image_editable = ImageDraw.Draw(my_image)
     image_editable.text((25,35), "3 ~ Motor " + MLFB, (0, 0, 0), font=title_font)
-    image_editable.text((25,73), "No. YF " + cislo, (0, 0, 0), font=title_font)
-    image_editable.text((340,73), Z, (0, 0, 0), font=title_font)
+    image_editable.text((25,73), "No. YF " + cislo + "   " + Z, (0, 0, 0), font=title_font)
     image_editable.text((25,105), "Enc. " + odmer, (0, 0, 0), font=title_font)
     image_editable.text((25,135), "Brake "+ brzda, (0, 0, 0), font=title_font)
     image_editable.text((25,175), "m "+ vaha +"Kg", (0, 0, 0), font=title_font)
