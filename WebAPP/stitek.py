@@ -170,6 +170,10 @@ def vyroba2(cislo):
     wc = len(cislo)
     datum = cislo[0:2]
 
+    if not wc == 13|14:
+        #print("nic")
+        dat_v = "leden 2000"
+    
     #vyhledání data v tabulce
     for r in ws.rows:
         if wc == 13 :
