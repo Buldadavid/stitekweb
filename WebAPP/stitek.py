@@ -27,6 +27,13 @@ def stitek():
     barvaO = (data[0])["barvaO"]
     barvaZ = (data[0])["barvaZ"]
 
+    if Z == "/" :
+        Z = ""
+        
+    else:
+        Z = f"Z:{Z}"
+        
+    
     current_time = datetime.datetime.now()
     dat = str(current_time.year) + "." + str(current_time.month) + "." + str(current_time.day)
     vibroOK = dat + "_" + MLFB + "_" + cislo + "_16,67Hz_OK_VIB12"
@@ -60,6 +67,7 @@ def stitek():
     image_editable = ImageDraw.Draw(my_image)
     image_editable.text((25,35), "3 ~ Motor " + MLFB, (0, 0, 0), font=title_font)
     image_editable.text((25,73), "No. YF " + cislo, (0, 0, 0), font=title_font)
+    image_editable.text((340,73), Z, (0, 0, 0), font=title_font)
     image_editable.text((25,105), "Enc. " + odmer, (0, 0, 0), font=title_font)
     image_editable.text((25,135), "Brake "+ brzda, (0, 0, 0), font=title_font)
     image_editable.text((25,175), "m "+ vaha +"Kg", (0, 0, 0), font=title_font)
