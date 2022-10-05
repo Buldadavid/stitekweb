@@ -18,6 +18,7 @@ def index():
 def indexV():
 	row = []	
 	QR = request.form['text']
+	QR = QR.upper()
 	print(QR)
 	
 	brzda = request.form['text2']
@@ -113,5 +114,9 @@ def tisker():
     print("tisk")
     #os.system("lp -o media=1*1.9 /static/pillow_paste.jpg")
     return redirect("/uka")
+
+@app.errorhandler(500)
+def page_not_found(e):
+    return render_template('500.html'), 500   
 
 app.run(host="0.0.0.0")
