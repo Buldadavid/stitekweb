@@ -112,7 +112,7 @@ def home():
 @app.route("/tisk", methods=['POST'])
 def tisker():
     print("tisk")
-    #os.system("lp -o media=1*1.9 /static/pillow_paste.jpg")
+    #os.system("lp -o media=1*1.9 /static/pillow_paste.png")
     return redirect("/uka")
 
 @app.errorhandler(500)
