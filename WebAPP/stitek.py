@@ -60,20 +60,47 @@ def stitek():
         border=1)
     qr.add_data(input_data)
     qr.make(fit=True)
-    im2 = qr.make_image(fill='black', back_color='white')
-    my_image = Image.open("tisk-stitku/st.jpg")
+        im2 = qr.make_image(fill='black', back_color='white')
+    my_image = Image.open("tisk-stitku/st.png")
     title_font = ImageFont.truetype("tisk-stitku/Roboto-Medium.ttf", 20)
+    
+    box = ((10, 10, 400, 177))
+    font_size = 20
+    size = None
+    text = "No. YF " + cislo + " " + Z
+    
+    while (size is None or size[0] > box[2] - box[0] or size[1] > box[3] - box[1]) and font_size > 0:
+        font = ImageFont.truetype("tisk-stitku/Roboto-Medium.ttf", font_size)
+        size = font.getsize_multiline(text)
+        font_size -= 1
 
     image_editable = ImageDraw.Draw(my_image)
-    image_editable.text((25,35), "3 ~ Motor " + MLFB, (0, 0, 0), font=title_font)
-    image_editable.text((25,73), "No. YF " + cislo + "   " + Z, (0, 0, 0), font=title_font)
-    image_editable.text((25,105), "Enc. " + odmer, (0, 0, 0), font=title_font)
-    image_editable.text((25,135), "Brake "+ brzda, (0, 0, 0), font=title_font)
-    image_editable.text((25,175), "m "+ vaha +"Kg", (0, 0, 0), font=title_font)
+    image_editable.text((10,40), "3 ~ Motor " + MLFB, (0, 0, 0), font=title_font)
+    image_editable.text((10,73), "No. YF " + cislo + "   " + Z, (0, 0, 0), font)
+    image_editable.text((10,105), "Enc. " + odmer, (0, 0, 0), font=title_font)
+    image_editable.text((10,135), "Brake "+ brzda, (0, 0, 0), font=title_font)
+    image_editable.text((10,175), "m "+ vaha +"Kg", (0, 0, 0), font=title_font)
     image_editable.text((225,105), "Tepl. čidlo " + tep, (0, 0, 0), font=title_font)
 
     my_image.paste(im2, (340, 135))
-    my_image.save("static/pillow_paste.jpg", quality=95)
+    
+    width = my_image.size[0] 
+    height = my_image.size[1] 
+    for i in range(0,width):# process all pixels
+        for j in range(0,height):
+            data = my_image.getpixel((i,j))
+            #print(data) #(255, 255, 255)
+            if (data[0]>=150 and data[1]>=150 and data[2]>=150):
+                my_image.putpixel((i,j),(255, 255, 255))
+                
+    for i in range(0,width):# process all pixels
+        for j in range(0,height):
+            data = my_image.getpixel((i,j))
+            #print(data) #(255, 255, 255)
+            if (data[0]<150 and data[1]<150 and data[2]<150):
+                my_image.putpixel((i,j),(0, 0, 0))
+    
+    my_image.save("static/pillow_paste.png", quality=95)
     print("OK")
     return(QR,MLFB,Z,cislo,odmer,dat_v,barva,vibroOK,vibroNOK,barvaO,barvaZ)
 
