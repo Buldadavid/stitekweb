@@ -29,3 +29,7 @@
 03.10.2022 	
 - štítek manuálně - upraveno, aby šlo zadávat cokoliv (třeba - ) a nejenom správný formát (M100 0000 00 000)   
 - tvorba štítku - zapisuje se i Z, pokud je / tak nic, ale pukud je cokoliv jiného, tak to napíše (Z:blablabla)
+
+12.10.2022 	
+- přidana funkce na tisk štítku firma + akz   
+- přidana funkce na tisk vlastních štítků 406*203.png
