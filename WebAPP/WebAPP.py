@@ -2,11 +2,19 @@ from flask import Flask, render_template, request,redirect
 import csv
 from openpyxl import load_workbook
 import stitek
+import stitekfirma
 from datetime import date
 import os
-
+from werkzeug.utils import secure_filename
+from PIL import Image, ImageFont, ImageDraw
 
 app = Flask(__name__)
+ALLOWED_EXTENSIONS = {'png'}
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
 header = ['QR','MLFB','cislo','z','brzda','odmer','vaha','tep','dat_v','barvaO','barvaZ']
 
 @app.route('/')
@@ -112,11 +120,49 @@ def home():
 @app.route("/tisk", methods=['POST'])
 def tisker():
     print("tisk")
-    #os.system("lp -o media=1*1.9 /static/pillow_paste.png")
+    os.system("lp -o media=1*1.9 static/pillow_paste.png")
     return redirect("/uka")
+
+@app.route('/stf', methods=['GET'])
+def stfM():
+    return render_template('stitekf.html')
+
+@app.route('/stf', methods=['POST'])
+def stf():
+    firma = request.form['text']
+    print(firma)
+    AKZ = request.form['text2']
+    print(AKZ)
+    
+    stitekfirma.stitekf(firma,AKZ)
+    
+    return redirect('/')
+
+@app.route('/obr')
+def upload_file():
+   return render_template('upload.html')
+
+@app.route('/obr', methods = ['GET', 'POST'])
+def upload_filep():
+   if request.method == 'POST':
+      f = request.files['file']
+      #print(f.filename)
+      if f.filename.endswith('.png'):
+          mi = Image.open(f)
+          w,h = mi.size
+          if 203 == h and 406 == w:
+              mi.save("static/pillow_paste.png", quality=95)
+              return render_template('stitekM.html')
+              #return 'file uploaded successfully'
+          else:
+              return render_template('500.html'), 500
+            
+      else:
+          return render_template('500.html'), 500
 
 @app.errorhandler(500)
 def page_not_found(e):
-    return render_template('500.html'), 500   
+    return render_template('500.html'), 500    
 
 app.run(host="0.0.0.0")
+
