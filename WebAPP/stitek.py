@@ -189,11 +189,15 @@ def vyroba(QR):
             if r[2].value == datum:
                 dat_v = r[3].value
                 #print(dat_v)
-
+            else:
+                dat_v = "leden 2000"
+                
         if wc == 14 :
             if r[4].value == datum:
                 dat_v = r[5].value
                 #print(dat_v)
+            else:
+                dat_v = "leden 2000"
     return(MLFB,cislo,odmer,Z,dat_v,barvaO,barvaZ)	
 
 def vyroba2(cislo):
